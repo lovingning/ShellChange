@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--*********************************************************************-->
+    <!--统一颜色部分:需要换肤部分,多种颜色-->
+    <!--*********************************************************************-->
+    <!--透明色-->
+    <color name="transparent">@android:color/transparent</color>
+
+    <!--标题颜色值-->
+    <color name="skin_title_color">#FF000000</color>
+
+    <!--基础文本默认颜色值-->
+    <color name="skin_body1_color">#FF1A1A1A</color>
+
+    <!--label等作为低一级标签类颜色-->
+    <color name="skin_display1_color">#FFCCCCCC</color>
+
+    <!--额外字体颜色之一-->
+    <color name="skin_display2_color_999999">#FF999999</color>
+    <color name="skin_display3_color_666666">#FF666666</color>
+    <color name="skin_display4_color_FFD31A1A">#FFD31A1A</color>
+
+    <!--hint 颜色值-->
+    <color name="skin_hint_color">#FFCCCCCC</color>
+
+    <!--accent文本color,按钮switch等打开模式颜色-->
+    <color name="skin_accent_color">#FF8144E5</color>
+
+    <!--edit-text 底部横线-->
+    <color name="skin_edit_bottom_line">#FFE6E6E6</color>
+
+    <!--indicator 标记颜色(tab-layout下划线等)-->
+    <color name="skin_indicator_select_color">#FF010101</color>
+    <color name="skin_indicator_normal_color">#FF666666</color>
+
+    <!--界面整体背景色(模拟scaffold脚手架)-->
+    <color name="skin_scaffold_background_color">#FFFFFFFF</color>
+
+    <!--深色背景色(另一中背景色)-->
+    <color name="skin_scaffold_deep_background_color">#FFF4F4F4</color>
+
+    <!--toolbar颜色-->
+    <color name="skin_primary_color">#00000000</color>
+
+    <!--statusBar 颜色-->
+    <color name="skin_primary_color_dark">#00000000</color>
+
+    <!--divider-color-->
+    <color name="skin_divider_color">#3D000000</color>
+
+    <!--dialog-background-color dialog 背景颜色值-->
+    <color name="skin_dialog_background_color">#4FAAAAAA</color>
+
+    <!--splash-color:用于menu,button等ripple-->
+    <color name="skin_splash_color">#FF1d2037</color>
+
+    <!--button颜色:splash,正常,禁用-->
+    <color name="skin_button_splash_color">#FF808e95</color>
+    <color name="skin_button_background_color">#FF8144E5</color>
+    <color name="skin_button_disabled_color">#FF696969</color>
+    <color name="skin_button_text_color">#FF2E7EF9</color>
+
+</resources>

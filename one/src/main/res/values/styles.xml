@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--translucent mode-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:textColorHint">@color/skin_hint_color</item>
+
+        <item name="android:windowBackground">@color/skin_scaffold_deep_background_color</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="Custom" />
+
+    <style name="Custom.TabLayout.TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_normal_14sp</item>
+    </style>
+
+    <style name="Custom.Bottom.TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_10_5sp</item>
+    </style>
+
+    <style name="Custom.Bottom.TextAppearance.Active" parent="Custom.Bottom.TextAppearance"></style>
+
+    <style name="Custom.Bottom.TextAppearance.Inactive" parent="Custom.Bottom.TextAppearance"></style>
+</resources>

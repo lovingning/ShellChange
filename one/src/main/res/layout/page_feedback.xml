@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/skin_scaffold_deep_background_color"
+    android:orientation="vertical">
+
+    <!---->
+    <include layout="@layout/layout_tool_bar" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_padding_margin_10dp"
+        android:background="@color/skin_scaffold_background_color"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:hint="请填写反馈内容"
+        android:lineSpacingMultiplier="1.5"
+        android:lines="6"
+        android:maxLength="500"
+        android:padding="@dimen/view_padding_margin_16dp"
+        android:textColor="@color/skin_body1_color"
+        android:textSize="@dimen/text_size_normal_14sp" />
+
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/prefer_view_height_48dp"
+        android:layout_marginTop="@dimen/view_padding_margin_10dp"
+        android:background="@drawable/layer_bg_scaffold_bottom_divider"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@color/skin_title_color"
+        android:textSize="@dimen/text_size_normal_14sp" />
+</LinearLayout>

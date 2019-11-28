@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_tool_bar" />
+
+    <com.knowledge.mnlin.linemenuview.LineMenuView
+        android:id="@+id/lmv_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_padding_margin_10dp"
+        android:background="@drawable/layer_bg_scaffold_bottom_divider"
+        android:paddingStart="@dimen/view_padding_margin_16dp"
+        android:paddingEnd="@dimen/view_padding_margin_16dp"
+        android:transitionName="@string/translation_head"
+        app:LineMenuView_badge="@drawable/icon_person_default_head"
+        app:LineMenuView_menu="头像"
+        app:LineMenuView_navigation="@drawable/icon_person_navigation"
+        app:LineMenuView_plugin="text" />
+
+    <com.knowledge.mnlin.linemenuview.LineMenuView
+        android:id="@+id/lmv_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layer_bg_scaffold_bottom_divider"
+        android:paddingStart="@dimen/view_padding_margin_16dp"
+        android:paddingEnd="@dimen/view_padding_margin_16dp"
+        app:LineMenuView_menu="181*******30"
+        app:LineMenuView_navigation="@drawable/icon_person_navigation"
+        app:LineMenuView_plugin="text" />
+
+    <com.knowledge.mnlin.linemenuview.LineMenuView
+        android:id="@+id/lmv_wx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layer_bg_scaffold_bottom_divider"
+        android:paddingStart="@dimen/view_padding_margin_16dp"
+        android:paddingEnd="@dimen/view_padding_margin_16dp"
+        app:LineMenuView_brief="已绑定"
+        app:LineMenuView_menu="绑定微信"
+        app:LineMenuView_plugin="text" />
+
+    <com.knowledge.mnlin.linemenuview.LineMenuView
+        android:id="@+id/lmv_qq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layer_bg_scaffold_bottom_divider"
+        android:paddingStart="@dimen/view_padding_margin_16dp"
+        android:paddingEnd="@dimen/view_padding_margin_16dp"
+        app:LineMenuView_brief="去绑定"
+        app:LineMenuView_brief_text_color="@color/skin_display4_color_FFD31A1A"
+        app:LineMenuView_menu="绑定QQ"
+        app:LineMenuView_plugin="text" />
+
+    <com.knowledge.mnlin.linemenuview.LineMenuView
+        android:id="@+id/lmv_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/skin_scaffold_background_color"
+        android:paddingStart="@dimen/view_padding_margin_16dp"
+        android:paddingEnd="@dimen/view_padding_margin_16dp"
+        app:LineMenuView_brief="***********"
+        app:LineMenuView_menu="修改登录密码"
+        app:LineMenuView_plugin="text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/prefer_view_height_48dp"
+        android:layout_marginTop="@dimen/view_padding_margin_10dp"
+        android:background="@color/skin_scaffold_background_color"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="@color/skin_title_color"
+        android:textSize="@dimen/text_size_normal_14sp" />
+</LinearLayout>
