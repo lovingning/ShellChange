@@ -1,8 +1,8 @@
 package com.knowledge.mnlin.shellchange.pages.person
 
 import com.knowledge.mnlin.page_annotation.annotations.InjectPageLayoutRes
-import com.knowledge.mnlin.sdialog.utils.dOnClick
-import com.knowledge.mnlin.sdialog.utils.toast
+import com.knowledge.mnlin.shellchange.utils.dOnClick
+import com.knowledge.mnlin.shellchange.utils.toast
 import com.knowledge.mnlin.shellchange.R
 import com.knowledge.mnlin.shellchange.pagebase.CustomPageImpl
 import kotlinx.android.synthetic.main.page_feedback.view.*

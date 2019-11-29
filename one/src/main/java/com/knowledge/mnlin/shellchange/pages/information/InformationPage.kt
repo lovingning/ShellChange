@@ -9,7 +9,7 @@ import com.knowledge.mnlin.page.core.PRouter
 import com.knowledge.mnlin.page.interfaces.Page
 import com.knowledge.mnlin.page.utils._TODO_PAGE_
 import com.knowledge.mnlin.page_annotation.annotations.InjectPageLayoutRes
-import com.knowledge.mnlin.sdialog.utils.empty
+import com.knowledge.mnlin.shellchange.utils.empty
 import com.knowledge.mnlin.shellchange.R
 import com.knowledge.mnlin.shellchange.pagebase.CustomPageImpl
 import kotlinx.android.synthetic.main.page_information.view.*

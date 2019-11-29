@@ -1,4 +1,4 @@
-package com.knowledge.mnlin.sdialog.utils
+package com.knowledge.mnlin.shellchange.utils
 
 import android.app.Activity
 import android.content.ContextWrapper
@@ -9,7 +9,6 @@ import androidx.core.widget.doAfterTextChanged
 import com.knowledge.mnlin.linemenuview.LineMenuListener
 import com.knowledge.mnlin.linemenuview.LineMenuView
 import com.knowledge.mnlin.page.interfaces.Page
-import com.knowledge.mnlin.shellchange.utils.DOnClickListener
 
 /**************************************
  * function : 向已有的类添加方法,避免子类的生成

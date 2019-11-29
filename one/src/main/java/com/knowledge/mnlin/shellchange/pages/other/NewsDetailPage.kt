@@ -4,9 +4,9 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.knowledge.mnlin.page_annotation.annotations.InjectPageLayoutRes
-import com.knowledge.mnlin.sdialog.utils.dOnClick
-import com.knowledge.mnlin.sdialog.utils.empty
-import com.knowledge.mnlin.sdialog.utils.toast
+import com.knowledge.mnlin.shellchange.utils.dOnClick
+import com.knowledge.mnlin.shellchange.utils.empty
+import com.knowledge.mnlin.shellchange.utils.toast
 import com.knowledge.mnlin.shellchange.R
 import com.knowledge.mnlin.shellchange.pagebase.CustomPageImpl
 import kotlinx.android.synthetic.main.page_news_detail.view.*

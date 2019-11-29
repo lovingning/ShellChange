@@ -6,8 +6,10 @@ gradle
 .DS_Store
 /build
 /captures
+release
 .externalNativeBuild
 .cxx
 apks
 product
 problem.md
+ks.jks

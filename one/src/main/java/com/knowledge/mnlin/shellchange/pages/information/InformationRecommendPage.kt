@@ -5,7 +5,7 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.knowledge.mnlin.page.core.PRouter
 import com.knowledge.mnlin.page_annotation.annotations.InjectPageLayoutRes
-import com.knowledge.mnlin.sdialog.utils.dOnClick
+import com.knowledge.mnlin.shellchange.utils.dOnClick
 import com.knowledge.mnlin.shellchange.R
 import com.knowledge.mnlin.shellchange.adapters.ViewPagerAdapter
 import com.knowledge.mnlin.shellchange.beans.MoreBean

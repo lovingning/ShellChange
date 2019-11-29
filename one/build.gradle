@@ -7,27 +7,106 @@ apply plugin: 'kotlin-android-extensions'
 //kotlin - dagger
 apply plugin: "kotlin-kapt"
 
+//res混淆
+apply plugin: 'AndResGuard'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('keystore.properties').newDataInputStream())
+
+def v_code = 100
+def v_name = "1.0.0"
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+
+    /**
+     * lint检查
+     */
+    lintOptions {
+        // true--关闭lint报告的分析进度
+        quiet true
+        // true--错误发生后停止gradle构建
+        abortOnError false
+        // true--只报告error
+        ignoreWarnings true
+        // true--忽略有错误的文件的全/绝对路径(默认是true)
+        absolutePaths true
+        // true--检查所有问题点，包含其他默认关闭项
+        checkAllWarnings true
+        // true--所有warning当做error
+        warningsAsErrors true
+        // 关闭指定问题检查
+        disable 'TypographyFractions', 'TypographyQuotes'
+        // 打开指定问题检查
+        enable 'RtlHardcoded', 'RtlCompat', 'RtlEnabled'
+        // 仅检查指定问题
+        check 'NewApi', 'InlinedApi'
+        // true--error输出文件不包含源码行号
+        noLines true
+        // true--显示错误的所有发生位置，不截取
+        showAll true
+        // 回退lint设置(默认规则)
+        lintConfig file("lint.xml")
+        // true--生成txt格式报告(默认false)
+        textReport true
+        // 重定向输出；可以是文件或'stdout'
+        textOutput 'stdout'
+        // true--生成XML格式报告
+        xmlReport false
+        // 指定xml报告文档(默认lint-results.xml)
+        xmlOutput file("lint-report.xml")
+        // true--生成HTML报告(带问题解释，源码位置，等)
+        htmlReport true
+        // html报告可选路径(构建器默认是lint-results.html )
+        htmlOutput file("lint-report.html")
+        //  true--所有正式版构建执行规则生成崩溃的lint检查，如果有崩溃问题将停止构建
+        checkReleaseBuilds true
+        // 指定问题的规则生成错误
+        error 'Wakelock', 'TextViewEdits'
+        // 指定问题的规则生成警告
+        warning 'ResourceAsColor'
+        // 忽略指定问题的规则(同关闭检查)
+        ignore 'TypographyQuotes'
+    }
+
     defaultConfig {
         applicationId "com.knowledge.mnlin.shellchange"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode v_code
+        versionName v_name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
     }
+
+    signingConfigs {
+        release {
+            storeFile file(properties.getProperty("ks_path"))
+            keyPassword properties.getProperty("ks_password")
+            keyAlias properties.getProperty("ks_alias")
+            storePassword properties.getProperty("ks_alias_password")
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+            shrinkResources true
+            zipAlignEnabled true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     repositories {
         flatDir { dirs 'libs' }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${releaseTime()}_v${defaultConfig.versionName}.apk"
+        }
     }
 
     compileOptions {
@@ -37,6 +116,81 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
 }
+
+/**
+ * resource文件混淆
+ */
+andResGuard {
+    // mappingFile = file("./resource_mapping.txt")
+    mappingFile = null
+    use7zip = true
+    useSign = true
+    // it will keep the origin path of your resources when it's true
+    keepRoot = false
+
+    whiteList = [
+            //友盟
+            "R.anim.umeng*",
+            "R.string.umeng*",
+            "R.string.UM*",
+            "R.string.tb_*",
+            "R.layout.umeng*",
+            "R.layout.socialize_*",
+            "R.layout.*messager*",
+            "R.layout.tb_*",
+            "R.color.umeng*",
+            "R.color.tb_*",
+            "R.style.*UM*",
+            "R.style.umeng*",
+            "R.drawable.umeng*",
+            "R.drawable.tb_*",
+            "R.drawable.sina*",
+            "R.drawable.qq_*",
+            "R.drawable.tb_*",
+            "R.id.umeng*",
+            "R.id.*messager*",
+            "R.id.progress_bar_parent",
+            "R.id.socialize_*",
+            "R.id.webView",
+
+            //LineMenuView
+            "R.id.R.id.LINE_MENU_VIEW_TAG_POSITION",
+            "R.layout.layout_line_menu"
+    ]
+    compressFilePattern = [
+            "*.png",
+            "*.jpg",
+            "*.jpeg",
+            "*.gif",
+    ]
+    sevenzip {
+        artifact = 'com.tencent.mm:SevenZip:1.2.13'
+        //path = "/c/Program Files/7-Zip"
+    }
+
+    /**
+     * Optional: if finalApkBackupPath is null, AndResGuard will overwrite final apk
+     * to the path which assemble[Task] write to
+     **/
+    finalApkBackupPath = "${project.rootDir}/release/${releaseTime()}_v${v_name}_7z.apk"
+
+    /**
+     * Optional: Specifies the name of the message digest algorithm to user when digesting the entries of JAR file
+     * Only works in V1signing, default value is "SHA-1"
+     **/
+    // digestalg = "SHA-256"
+}
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 
 dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -57,15 +211,15 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.25.9'
 
     // auto register processor
-    implementation 'com.google.auto.service:auto-service:1.0-rc6'
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc6'
     annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
 
     // create code
-    implementation 'com.squareup:javapoet:1.8.0'
+    compileOnly 'com.squareup:javapoet:1.8.0'
 
     // utils
-    implementation 'org.apache.commons:commons-lang3:3.4'
-    implementation 'org.apache.commons:commons-collections4:4.1'
+    compileOnly 'org.apache.commons:commons-lang3:3.4'
+    compileOnly 'org.apache.commons:commons-collections4:4.1'
 
     //bottom-navigation
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'

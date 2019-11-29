@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
-import com.knowledge.mnlin.sdialog.utils.getActivityFromView
+import com.knowledge.mnlin.shellchange.utils.getActivityFromView
 import com.knowledge.mnlin.shellchange.bases.BaseRecyclerViewHolder
 
 /**

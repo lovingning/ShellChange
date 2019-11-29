@@ -2,8 +2,8 @@ package com.knowledge.mnlin.shellchange.pages.person.setting
 
 import com.knowledge.mnlin.page.core.PRouter
 import com.knowledge.mnlin.page_annotation.annotations.InjectPageLayoutRes
-import com.knowledge.mnlin.sdialog.utils.onPerformSelf
-import com.knowledge.mnlin.sdialog.utils.toast
+import com.knowledge.mnlin.shellchange.utils.onPerformSelf
+import com.knowledge.mnlin.shellchange.utils.toast
 import com.knowledge.mnlin.shellchange.R
 import com.knowledge.mnlin.shellchange.pagebase.CustomPageImpl
 import kotlinx.android.synthetic.main.page_setting.view.*
